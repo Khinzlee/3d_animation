@@ -1,10 +1,10 @@
-import React, { useRef, useEffect } from 'react'
+import { useRef, useEffect } from 'react'
 
 const Hero = () => {
     const videoRef = useRef();
 
     useEffect(() => {
-        if(videoRef.current) videoRef.current.playbackRate = 2;
+        if(videoRef.current) videoRef.current.playbackRate = 1;
     }, []);
 
   return (
@@ -18,7 +18,7 @@ const Hero = () => {
 
         <button>Buy Now</button>
 
-        <p> From $1599 0r 133/mo for 12 months </p>
+        <p className="leading-relaxed"> From $1599 or $133/mo for 12 months </p>
     </section>    
   )
 }

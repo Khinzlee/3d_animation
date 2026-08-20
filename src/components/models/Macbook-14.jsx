@@ -8,7 +8,7 @@ Source: https://sketchfab.com/3d-models/macbook-pro-m3-16-inch-2024-8e34fc2b3031
 Title: macbook pro M3 16 inch 2024
 */
 
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useGLTF, useTexture } from '@react-three/drei'
 import useMacbookStore from '../../store';
 import { noChangeParts } from '../constants';
@@ -24,13 +24,13 @@ export  default function MacbookModel14(props) {
   useEffect(() => {
     scene.traverse((child) => {
         if(child.isMesh){
-          // change color only if the part name is NOT noChangeParts
           if(!noChangeParts.includes(child.name)){
+            child.material = child.material.clone();
             child.material.color = new Color(color);
           }
         }
     })
-  }, [color]) 
+  }, [color, scene])
 
 
   return (

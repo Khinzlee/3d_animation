@@ -113,7 +113,7 @@ body {
   }
 
   #hero {
-    @apply h-fit lg:h-[80vh] col-center mt-40 lg:mt-20 2xl:mt-[7vh];
+    @apply h-fit lg:min-h-[80vh] col-center mt-40 lg:mt-20 2xl:mt-[7vh];
 
     div {
       @apply relative z-10 col-center lg:translate-y-16;
@@ -135,9 +135,17 @@ body {
       @apply relative z-10 bg-primary text-white py-2 px-6 mt-10 lg:mt-0 mb-5 rounded-full font-semibold text-lg cursor-pointer hover:bg-white hover:text-black transition-all duration-300 ease-in-out;
     }
 
-    p {
+    /* p {
       @apply lg:h3-semibold base-semibold;
-    }
+    } */
+
+    p {
+  @apply lg:h3-semibold base-semibold relative z-10;
+}
+
+    p {
+    @apply lg:h3-semibold base-semibold leading-relaxed;
+  }
   }
 
   #product-viewer {
@@ -207,7 +215,7 @@ body {
     }
 
     .content {
-      @apply relative z-10 my-5 lg:-mt-40 bg-black font-semibold text-xl text-dark-100 lg:opacity-0;
+      @apply relative z-10 mt-20 bg-black font-semibold text-xl text-dark-100;
 
       .wrapper {
         @apply container mx-auto px-5 pb-20 2xl:px-0 flex flex-col lg:flex-row justify-center gap-20;
