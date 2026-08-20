@@ -8,7 +8,7 @@ Source: https://sketchfab.com/3d-models/macbook-pro-m3-16-inch-2024-8e34fc2b3031
 Title: macbook pro M3 16 inch 2024
 */
 
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { useGLTF, useTexture } from '@react-three/drei'
 import useMacbookStore from '../../store';
 import { noChangeParts } from '../constants';
@@ -17,6 +17,7 @@ import {Color} from 'three'
 export default function MacbookModel16(props) {
   
   const { color } = useMacbookStore();
+  const cloned = useRef(false);
 
   const { nodes, materials, scene } = useGLTF('/models/macbook-16-transformed.glb');
 
@@ -24,13 +25,14 @@ export default function MacbookModel16(props) {
 
   useEffect(() => {
     scene.traverse((child) => {
-        if(child.isMesh){
-          if(!noChangeParts.includes(child.name)){
+        if(child.isMesh && !noChangeParts.includes(child.name)){
+          if(!cloned.current){
             child.material = child.material.clone();
-            child.material.color = new Color(color);
           }
+          child.material.color = new Color(color);
         }
     })
+    cloned.current = true;
   }, [color, scene])
   return (
     <group {...props} dispose={null}>

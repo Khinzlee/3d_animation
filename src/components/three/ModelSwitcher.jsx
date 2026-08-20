@@ -8,6 +8,14 @@ import MacbookModel14 from '../models/Macbook-14';
 const ANIMATION_DURATION = 1;
 const OFFSET_DISTANCE = 5;
 
+const controlsConfig = {
+    snap : true,
+    speed: 1,
+    zoom: false,
+    azimuth: [-Infinity, Infinity],
+    config: {mass: 1, tension:0, friction: 26 }
+}
+
 
 const fadeMeshes = (group, opacity) => {
     if(!group) return;
@@ -50,15 +58,6 @@ const ModelSwitcher = ({scale, isMobile }) => {
             fadeMeshes(largeMacbookRef.current, 0);
         }
     }, [scale])
-
-    const controlsConfig = {
-        snap : true,
-        speed: 1,
-        zoom: false,
-        // polar: [-Math.PI, Math.PI],
-        azimuth: [-Infinity, Infinity],
-        config: {mass: 1, tension:0, friction: 26 }
-    }
 
   return (
     <>

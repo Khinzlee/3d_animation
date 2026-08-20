@@ -4,8 +4,8 @@ import { Canvas } from '@react-three/fiber'
 import StudioLights from './three/studioLights'
 import { useMediaQuery } from 'react-responsive'
 import ModelSwitcher from './three/ModelSwitcher'
- 
 
+const cameraConfig = { position: [0,2,5], fov:50, near:0.1, far:100 }
 
 const ProductViewer = () => {
     const {color, scale, setColor, setScale} =  useMacbookStore();
@@ -49,7 +49,7 @@ const ProductViewer = () => {
             </div>
         </div>
 
-        <Canvas id='canvas' camera={{ position: [0,2,5], fov:50, near:0.1, far:100 }}   >
+        <Canvas id='canvas' camera={cameraConfig}>
             {/* <Box position={[0, 0, 0]} scale={10*scale} material-color={color} /> */}
             
             <StudioLights/>

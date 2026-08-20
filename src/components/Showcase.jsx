@@ -9,16 +9,19 @@ const Showcase = () => {
   useGSAP(() => {
     if(!isTablet){
       const timeline = gsap.timeline({
-        trigger: "#showcase",
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
-        pin: true,
+        scrollTrigger: {
+          trigger: "#showcase",
+          start: "top top",
+          pin: true,
+        },
+        delay: 1,
     });
 
     timeline.to('.mask img', {
-      transform: 'scale(1.1)'
-    }).to('.content', {opacity: 1, y:0, ease: "power1.in"});
+      transform: 'scale(1.2)',
+      duration: 1,
+      ease: "power1.in"
+    }).to('.content', {opacity: 1, y:0, duration: 1, ease: "power1.in"});
   }}, [isTablet])
 
   return (

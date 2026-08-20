@@ -135,17 +135,9 @@ body {
       @apply relative z-10 bg-primary text-white py-2 px-6 mt-10 lg:mt-0 mb-5 rounded-full font-semibold text-lg cursor-pointer hover:bg-white hover:text-black transition-all duration-300 ease-in-out;
     }
 
-    /* p {
-      @apply lg:h3-semibold base-semibold;
-    } */
-
     p {
-  @apply lg:h3-semibold base-semibold relative z-10;
+  @apply lg:h3-semibold base-semibold relative z-10 leading-relaxed;
 }
-
-    p {
-    @apply lg:h3-semibold base-semibold leading-relaxed;
-  }
   }
 
   #product-viewer {
@@ -203,7 +195,8 @@ body {
 
         img {
           @apply h-full scale-150 lg:scale-100;
-          transform: matrix(80, 0, 0, 80, 0, 0);
+          /* transform: matrix(80, 0, 0, 80, 0, 0); */
+          transform: (1.5, 0, 0, 1.5, 0, 0);
         }
 
         @media (max-width: 1024px) {
@@ -351,8 +344,8 @@ body {
           @apply p-10 rounded-3xl flex items-center gap-7 relative;
 
           background: #1d1d1f;
-          background-clip: padding-box; /* !important */
-          border: 3px solid transparent; /* !important */
+          background-clip: padding-box;
+          border: 3px solid transparent;
 
           ::before {
             content: "";
@@ -360,8 +353,8 @@ body {
             position: absolute;
             inset: 0px;
             z-index: -1;
-            margin: -5px; /* !important */
-            border-radius: 24px; /* !important */
+            margin: -5px;
+            border-radius: 24px;
             background: linear-gradient(
               91deg,
               #0096ff 0%,
