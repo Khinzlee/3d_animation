@@ -19,7 +19,7 @@ const Showcase = () => {
 
     timeline.to('.mask img', {
       transform: 'scale(1.2)',
-      duration: 1,
+      duration: 2,
       ease: "power1.in"
     }).to('.content', {opacity: 1, y:0, duration: 1, ease: "power1.in"});
   }}, [isTablet])
